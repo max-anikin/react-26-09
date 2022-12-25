@@ -6,6 +6,8 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Menu from 'components/Menu/Menu'
+import CartHeader from 'components/CartHeader/CartHeader'
+import logo from 'assets/logo.svg'
 
 type Props = {}
 const Header = (props: Props) => {
@@ -28,9 +30,10 @@ const Header = (props: Props) => {
                             component="div"
                             sx={{ flexGrow: 1 }}
                         >
-                            News
+                            <img src={logo} alt="Fake shop logo" />
                         </Typography>
                         <Menu />
+                        <CartHeader />
                     </Toolbar>
                 </Container>
             </AppBar>
