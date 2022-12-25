@@ -1,27 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// const App = () => {
-//     return (
-//         <div>
-//             <h1>Hello React</h1>
-//             <p>
-//                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum
-//                 expedita facilis quas veritatis quo nemo ad, necessitatibus
-//                 repellendus, sit ipsum saepe ullam rem asperiores voluptas iusto
-//                 magnam officiis a minima!
-//             </p>
-// ;<p>
-//     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum expedita
-//     facilis quas veritatis quo nemo ad, necessitatibus repellendus, sit ipsum
-//     saepe ullam rem asperiores voluptas iusto magnam officiis a minima!
-// </p>
-//         </div>
-//     )
-// }
+type TitleProps = {
+    title?: string | number
+}
 
-const Title = () => {
-    return <h1>Hello React</h1>
+const Title = (props: TitleProps) => {
+    // console.log(props)
+    return <h1>Hello {props.title}</h1>
 }
 
 const Content = () => {
@@ -46,7 +32,10 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Title />
+            <Title title="React" />
+
+            <Title title="TS" />
+            <Title title={10} />
             <Content />
         </>
     )
