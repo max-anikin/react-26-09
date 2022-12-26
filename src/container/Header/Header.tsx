@@ -11,9 +11,13 @@ import './Header.css'
 
 type Props = {}
 const Header = (props: Props) => {
+    let appBar = false
     return (
         <>
-            <AppBar position="static" className="app-bar">
+            <AppBar
+                position="static"
+                className={`${appBar ? 'app-bar-grey' : 'app-bar'}`}
+            >
                 <Container maxWidth="lg">
                     <Toolbar>
                         <IconButton
