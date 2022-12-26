@@ -1,7 +1,17 @@
 import { Grid } from '@mui/material'
 import ProductsListItem from './ProductstListItem'
+import productsArray from 'utils/ProductsArray'
 
 type Props = {}
+
+type ProductProps = {
+    id: number
+    title: string
+    desc: string
+    type: string
+    capacity: string
+    price: number
+}
 
 const ProductsList = (props: Props) => {
     return (
@@ -13,33 +23,29 @@ const ProductsList = (props: Props) => {
                 alignItems="center"
                 spacing={4}
             >
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="iPhone X"
-                        desc="This is iPhone X"
-                        type="phone"
-                        capacity="64"
-                        price={999}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="iPhone 14 Pro"
-                        desc="This is iPhone 14 Pro"
-                        type="phone"
-                        capacity="32"
-                        price={799}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="iPhone 13"
-                        desc="This is iPhone 13"
-                        type="phone"
-                        capacity="16"
-                        price={499}
-                    />
-                </Grid>
+                {productsArray.map(
+                    (
+                        {
+                            title,
+                            desc,
+                            type,
+                            capacity,
+                            price,
+                            id,
+                        }: ProductProps,
+                        i
+                    ) => (
+                        <Grid item xs={12} sm={6} md={4} key={id}>
+                            <ProductsListItem
+                                title={title}
+                                desc={desc}
+                                type={type}
+                                capacity={capacity}
+                                price={price}
+                            />
+                        </Grid>
+                    )
+                )}
             </Grid>
         </>
     )
