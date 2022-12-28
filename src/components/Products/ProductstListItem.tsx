@@ -27,6 +27,22 @@ const ProductsListItem = (props: Props) => {
         setCount((prevState: number) => prevState - 1)
     }
 
+    const [color, setColor] = useState<string>('green')
+
+    const changeColor = () => {
+        setColor((prevState: string) =>
+            prevState === 'green' ? 'red' : 'green'
+        )
+        // === Variant 2 ===
+        // setColor((prevState: string) => {
+        //     if (prevState === 'green') {
+        //         return 'red'
+        //     } else {
+        //         return 'green'
+        //     }
+        // })
+    }
+
     return (
         <Card className="product" variant="outlined">
             <CardContent>
@@ -48,6 +64,8 @@ const ProductsListItem = (props: Props) => {
                 <div className="product-price">
                     <span>Price:</span> {props.price}$
                 </div>
+                <p className={`${color}`}>Color: {color}</p>
+                <button onClick={changeColor}>Change color</button>
                 <div className="product-quantity">
                     <Button
                         variant="outlined"
