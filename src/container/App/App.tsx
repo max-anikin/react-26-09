@@ -13,14 +13,14 @@ type CartData = {
 
 const App = (props: Props) => {
     const [cartData, setCartData] = useState<CartData>({
-        totalCount: 0,
-        totalPrice: 0,
+        totalCount: 14,
+        totalPrice: 3456,
     })
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header />
+            <Header cartData={cartData} />
             <Main />
         </StyledEngineProvider>
     )
