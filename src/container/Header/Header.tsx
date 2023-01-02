@@ -14,8 +14,11 @@ type Props = {
         totalCount: number
         totalPrice: number
     }
+    productsInCart: {
+        [id: number]: number
+    }
 }
-const Header = ({ cartData }: Props) => {
+const Header = ({ cartData, productsInCart }: Props) => {
     let appBar = false
     // console.log(cartData)
     return (
@@ -37,7 +40,10 @@ const Header = ({ cartData }: Props) => {
                         </IconButton>
                         <Logo />
                         <Menu />
-                        <CartHeader cartData={cartData} />
+                        <CartHeader
+                            cartData={cartData}
+                            productsInCart={productsInCart}
+                        />
                     </Toolbar>
                 </Container>
             </AppBar>
